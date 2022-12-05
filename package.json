@@ -5,6 +5,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "license": "MIT",
   "main": "dist/vue3.umd.js",
   "module": "dist/vue3.es.js",
   "types": "dist/index.d.ts",
@@ -18,17 +19,7 @@
     "dist"
   ],
   "dependencies": {
-    "@vueuse/core": "^9.4.0",
-    "@vueuse/integrations": "^9.6.0",
-    "@widget-js/core": "0.0.14",
-    "animate.css": "^4.1.1",
-    "color": "^4.2.3",
-    "core-js": "^3.8.3",
-    "element-plus": "^2.2.19",
-    "mingcute_icon": "^2.3.0",
-    "semver": "^7.3.8",
-    "vue": "^3.2.30",
-    "vue-i18n": "^9.2.2"
+
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
@@ -41,25 +32,19 @@
     "@storybook/builder-vite": "^0.2.5",
     "@storybook/testing-library": "^0.0.13",
     "@storybook/vue3": "^6.5.13",
-    "@types/color": "^3.0.3",
-    "@types/node": "^18.11.7",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
     "@vitejs/plugin-vue": "^3.0.1",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-typescript": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/cli-shared-utils": "^5.0.8",
     "@vue/eslint-config-typescript": "^9.1.0",
     "babel-loader": "^8.3.0",
-    "change-case": "^4.1.2",
     "eslint": "^8.26.0",
     "eslint-plugin-storybook": "^0.6.7",
     "eslint-plugin-vue": "^8.0.3",
-    "file-loader": "^6.2.0",
-    "lint-staged": "^13.0.3",
     "pinst": "^3.0.0",
     "sass": "^1.56.0",
     "sass-loader": "^12.0.0",
@@ -74,8 +59,16 @@
     "vite-plugin-copy": "^0.1.6",
     "vite-plugin-dts": "^1.7.1",
     "vite-plugin-md": "^0.20.4",
+    "vue": "^3.2.30",
     "vue-cli-plugin-storybook": "^3.0.0-rc.1",
+    "vue-i18n": "^9.2.2",
     "vue-loader": "^16.8.3",
-    "vue-tsc": "^0.39.2"
+    "vue-tsc": "^0.39.2",
+    "@vueuse/core": "^9.4.0",
+    "@vueuse/integrations": "^9.6.0",
+    "@widget-js/core": "0.0.14",
+    "animate.css": "^4.1.1",
+    "element-plus": "^2.2.19",
+    "mingcute_icon": "^2.3.0"
   }
 }

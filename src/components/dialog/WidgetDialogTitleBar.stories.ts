@@ -1,4 +1,4 @@
-import TitleBar from '@/components/dialog/DialogTitleBar.vue';
+import TitleBar from '@/components/dialog/WidgetDialogTitleBar.vue';
 
 export default {
     title: '通用组件/TitleBar',

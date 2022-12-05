@@ -22,6 +22,7 @@ const WidgetJsPlugin: Plugin = {
         app.component('WidgetTimeRangeField', WidgetTimeRangeField);
     },
 };
+
 export {
     WidgetBaseDialog,
     WidgetEditDialog,
