@@ -11,12 +11,10 @@
 
 <script lang="ts">
 
-import {ElButton, ElRow} from "element-plus";
 import {defineComponent} from "vue";
 
 export default defineComponent(
     {
-      components: {ElButton, ElRow},
       props: {
         title: {
           type: String

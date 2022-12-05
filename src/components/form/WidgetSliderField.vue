@@ -6,7 +6,6 @@
 
 <script lang="ts" setup>
 import {computed} from "vue";
-import {ElFormItem,ElSlider} from "element-plus";
 
 const props = defineProps({
   title: {

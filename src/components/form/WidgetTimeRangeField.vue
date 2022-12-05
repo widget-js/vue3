@@ -11,7 +11,6 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-import {ElFormItem,ElTimePicker} from "element-plus";
 
 export default defineComponent({
   name: "WidgetTimeRangeField",

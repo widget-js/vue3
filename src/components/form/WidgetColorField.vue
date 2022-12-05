@@ -10,7 +10,6 @@
 
 <script lang="ts" setup>
 import {computed, ref} from "vue";
-import {ElFormItem,ElColorPicker} from "element-plus";
 
 const predefineColors = ref([
   '#FFFFFF',

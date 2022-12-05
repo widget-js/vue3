@@ -43,11 +43,10 @@ import {WidgetData} from "@widget-js/core";
 import WidgetDialogTitleBar from "@/components/dialog/WidgetDialogTitleBar.vue";
 import WidgetSliderField from "@/components/form/WidgetSliderField.vue";
 import {WidgetConfigOption} from "@/model/WidgetConfigOption";
-import {ElButton, ElContainer, ElRow, ElTabPane, ElTabs} from "element-plus";
 
 export default defineComponent({
       name: "WidgetEditDialog",
-      components: {WidgetSliderField, ElRow, ElButton, ElContainer, ElTabPane,ElTabs, WidgetDialogTitleBar, WidgetColorField},
+      components: {WidgetSliderField, WidgetDialogTitleBar, WidgetColorField},
       setup: (props) => {
         const activeName = ref('custom');
         const backgroundColor = ref("white")
