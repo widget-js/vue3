@@ -1,18 +1,19 @@
-import TitleBar from '@/components/dialog/WidgetDialogTitleBar.vue';
+import WidgetDialogTitleBar from "./WidgetDialogTitleBar.vue";
 
 export default {
-    title: '通用组件/TitleBar',
-    component: TitleBar,
+    components: {WidgetDialogTitleBar},
+    title: 'Dialog/WidgetDialogTitleBar',
+    component: WidgetDialogTitleBar,
     argTypes: {
     },
 };
 
 export const Default = (args: any) => ({
-    components: {TitleBar},
+    components: {WidgetDialogTitleBar},
     setup() {
         return {args};
     },
-    template: '<title-bar v-bind="args"></title-bar>',
+    template: '<widget-dialog-title-bar v-bind="args"></widget-dialog-title-bar>',
 });
 
 Default.parameters = {

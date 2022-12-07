@@ -11,13 +11,9 @@
 
 <script lang="ts">
 
-import {ElButton, ElRow} from "element-plus";
 import {defineComponent} from "vue";
-import 'element-plus/es/components/button/style/css'
-import 'element-plus/es/components/row/style/css'
 export default defineComponent(
     {
-      components: {ElButton, ElRow},
       props: {
         title: {
           type: String

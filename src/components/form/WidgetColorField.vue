@@ -10,9 +10,6 @@
 
 <script lang="ts" setup>
 import {computed, ref} from "vue";
-import {ElFormItem,ElColorPicker} from "element-plus";
-import 'element-plus/es/components/form-item/style/css'
-import 'element-plus/es/components/color-picker/style/css'
 const predefineColors = ref([
   '#FFFFFF',
   '#909399',
@@ -54,7 +51,7 @@ const colorModel = computed({
 
 <style scoped lang="scss">
 @use "sass:map";
-@import "@/scss/theme.scss";
+@import "../../scss/theme.scss";
 
 .colors {
   display: flex;

@@ -1,7 +1,7 @@
-import WidgetEditDialog from '@/components/dialog/WidgetEditDialog.vue';
+import WidgetEditDialog from "./WidgetEditDialog.vue";
 
 export default {
-    title: '通用组件/WidgetEditDialog',
+    title: 'Dialog/WidgetEditDialog',
     component: WidgetEditDialog,
     argTypes: {
     },

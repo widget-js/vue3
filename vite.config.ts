@@ -2,16 +2,33 @@ import {resolve} from 'path'
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from "vite-plugin-dts";
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig({
     plugins: [
-        dts(), vue()
+        dts(), vue(),
+        AutoImport({
+            resolvers: [ElementPlusResolver()],
+        }),
+        Components({
+            resolvers: [ElementPlusResolver()],
+        }),
+        viteStaticCopy({
+            targets: [
+                {
+                    src: './node_modules/mingcute_icon/',
+                    dest: './'
+                }
+            ]
+        })
     ],
     resolve: {
         alias: {
             '@': resolve(__dirname, './src'),
         },
-        dedupe: ['vue'],
     },
     build: {
         outDir: 'dist',

@@ -11,12 +11,10 @@
 
 import DialogTitleBar from "@/components/dialog/WidgetDialogTitleBar.vue";
 import WidgetDialogTitleBar from "@/components/dialog/WidgetDialogTitleBar.vue";
-import {ElContainer} from "element-plus";
-import 'element-plus/es/components/container/style/css'
 import {defineComponent} from "vue";
 
 export default defineComponent({
-      components: {WidgetDialogTitleBar, DialogTitleBar,ElContainer},
+      components: {WidgetDialogTitleBar, DialogTitleBar},
       name: "WidgetBaseDialog",
       props: {
         title: {

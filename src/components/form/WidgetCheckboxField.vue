@@ -6,9 +6,6 @@
 
 <script lang="ts" setup>
 import {computed} from "vue";
-import {ElFormItem,ElCheckbox} from "element-plus";
-import 'element-plus/es/components/form-item/style/css'
-import 'element-plus/es/components/checkbox/style/css'
 const props = defineProps({
   title: {
     type: String,

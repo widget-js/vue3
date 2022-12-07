@@ -1,4 +1,4 @@
-type ConfigOption = {
+export type ConfigOption = {
     custom?: boolean;
     borderRadius?: boolean;
     backgroundColor?: boolean;

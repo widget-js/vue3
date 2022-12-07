@@ -4,7 +4,8 @@ import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
 import 'animate.css'
 import 'mingcute_icon/font/Mingcute.css';
-
+import * as jest from "jest-mock";
+window.jest = jest;
 app.use(ElementPlus);
 
 export const parameters = {
