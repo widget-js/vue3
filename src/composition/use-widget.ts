@@ -5,6 +5,10 @@ type UseWidgetOption<T extends WidgetData> = {
     onDataLoaded?: (data: T) => void,
     debugParams?: WidgetParams,
     defaultData?: T,
+    /**
+     * 是否忽略组件id，只通过组件名获取数据
+     */
+    loadDataByWidgetName?: boolean;
 }
 
 export function useWidget<T extends WidgetData>(type: { new(name: string, id?: string): T; }, option?: UseWidgetOption<T>) {
@@ -30,19 +34,28 @@ export function useWidget<T extends WidgetData>(type: { new(name: string, id?: s
     widgetData.value.id = widgetParams.id!;
 
     //加载已保存的组件数据
-    WidgetDataRepository.find<T>(widgetParams.name!, widgetParams.id!, type).then((data) => {
-        if (data) {
-            widgetData.value = data
-            option?.onDataLoaded?.(data);
-        }
-    })
+    if (option?.loadDataByWidgetName) {
+        WidgetDataRepository.findByName<T>(widgetParams.name!, type).then((data) => {
+            if (data) {
+                widgetData.value = data
+                option?.onDataLoaded?.(data);
+            }
+        })
+    } else {
+        WidgetDataRepository.find<T>(widgetParams.name!, widgetParams.id!, type).then((data) => {
+            if (data) {
+                widgetData.value = data
+                option?.onDataLoaded?.(data);
+            }
+        })
+    }
 
     const sizeStyle = computed(() => {
         return {
             width: `${widgetParams.widthPx}px`,
             height: `${widgetParams.heightPx}px`,
         }
-    })
+    });
 
     return {widgetParams, widgetData, sizeStyle}
 }

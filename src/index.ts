@@ -7,6 +7,7 @@ import WidgetColorField from "@/components/form/WidgetColorField.vue";
 import WidgetCheckboxField from "@/components/form/WidgetCheckboxField.vue";
 import WidgetTimeRangeField from "@/components/form/WidgetTimeRangeField.vue";
 import WidgetSliderField from "@/components/form/WidgetSliderField.vue";
+import WidgetFitBox from "@/components/WidgetFitBox.vue";
 
 export * from '@/model/WidgetConfigOption'
 export * from '@/composition/use-widget'
@@ -20,6 +21,7 @@ const WidgetJsPlugin: Plugin = {
         app.component('WidgetCheckboxField', WidgetCheckboxField);
         app.component('WidgetSliderField', WidgetSliderField);
         app.component('WidgetTimeRangeField', WidgetTimeRangeField);
+        app.component('WidgetFitBox', WidgetFitBox);
     },
 };
 
@@ -30,5 +32,6 @@ export {
     WidgetColorField,
     WidgetDialogTitleBar,
     WidgetTimeRangeField,
-    WidgetJsPlugin
+    WidgetJsPlugin,
+    WidgetFitBox
 }

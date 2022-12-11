@@ -1,9 +1,12 @@
 <template>
   <el-container direction="vertical" class="widget-edit-dialog">
-    <widget-dialog-title-bar :title="title"></widget-dialog-title-bar>
+    <widget-dialog-title-bar :title="option.title??widgetParams.title??'设置'"></widget-dialog-title-bar>
     <el-row justify="center">
       <div class="wrapper">
-        <slot name="widget"></slot>
+        <widget-fit-box :width="option.previewWidth" :height="option.previewHeight" :widget-width="widgetParams.widthPx"
+                        :widget-height="widgetParams.heightPx">
+          <slot name="widget"></slot>
+        </widget-fit-box>
       </div>
     </el-row>
 
@@ -39,13 +42,15 @@
 <script lang="ts">
 import {defineComponent, ref} from "vue";
 import WidgetColorField from "@/components/form/WidgetColorField.vue";
-import {WidgetData} from "@widget-js/core";
+import {WidgetData, WidgetParams} from "@widget-js/core";
 import WidgetDialogTitleBar from "@/components/dialog/WidgetDialogTitleBar.vue";
 import WidgetSliderField from "@/components/form/WidgetSliderField.vue";
 import {WidgetConfigOption} from "@/model/WidgetConfigOption";
+import WidgetFitBox from "@/components/WidgetFitBox.vue";
+
 export default defineComponent({
       name: "WidgetEditDialog",
-      components: {WidgetSliderField, WidgetDialogTitleBar, WidgetColorField},
+      components: {WidgetFitBox, WidgetSliderField, WidgetDialogTitleBar, WidgetColorField},
       setup: (props) => {
         const activeName = ref('custom');
         const backgroundColor = ref("white")
@@ -58,16 +63,17 @@ export default defineComponent({
         return {activeName, backgroundColor, borderRadius}
       },
       props: {
-        title: {
-          type: String,
-        },
         widgetData: {
           type: WidgetData,
-          required: true
+          required: true,
+        },
+        widgetParams: {
+          type: WidgetParams,
+          required: true,
         },
         option: {
           type: WidgetConfigOption,
-          default: new WidgetConfigOption()
+          required: true,
         }
       },
       emits: ["confirm", "cancel"],

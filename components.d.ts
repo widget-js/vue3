@@ -26,6 +26,7 @@ declare module '@vue/runtime-core' {
     WidgetColorField: typeof import('./src/components/form/WidgetColorField.vue')['default']
     WidgetDialogTitleBar: typeof import('./src/components/dialog/WidgetDialogTitleBar.vue')['default']
     WidgetEditDialog: typeof import('./src/components/dialog/WidgetEditDialog.vue')['default']
+    WidgetFitBox: typeof import('./src/components/WidgetFitBox.vue')['default']
     WidgetSliderField: typeof import('./src/components/form/WidgetSliderField.vue')['default']
     WidgetTimeRangeField: typeof import('./src/components/form/WidgetTimeRangeField.vue')['default']
   }
