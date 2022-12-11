@@ -4205,10 +4205,10 @@
     "@webassemblyjs/wast-parser" "1.9.0"
     "@xtuc/long" "4.2.2"
 
-"@widget-js/core@0.0.14":
-  version "0.0.14"
-  resolved "https://registry.npmmirror.com/@widget-js/core/-/core-0.0.14.tgz#a4e38fcf6cd35fde60b956c48ef0e8f2fb432d62"
-  integrity sha512-cEq8QZ7dUye93JebmzKPyHtXEBF6hdF8jnreuI8q85y7AetiVWgiU+BroFDboezuPQzm0kJS52IKZf3uhxwu3Q==
+"@widget-js/core@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.npmmirror.com/@widget-js/core/-/core-0.1.6.tgz#ea2fd1bb2b7004a96b3a2a2d1a38a024f7c303cc"
+  integrity sha512-SbyO+PyXx4VDRf2vDVwS5PaiKI9E7D8rgy6Kff/cqMNtVc3mbf3rhqD9JQvdJt0vzlLB/hI2Ifqu76NziAbBTg==
   dependencies:
     change-case "^4.1.2"
     localforage "^1.10.0"

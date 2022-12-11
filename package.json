@@ -1,6 +1,6 @@
 {
   "name": "@widget-js/vue3",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "publishConfig": {
     "access": "public"
   },
@@ -38,7 +38,7 @@
     "@vue/eslint-config-typescript": "^9.1.0",
     "@vueuse/core": "^9.4.0",
     "@vueuse/integrations": "^9.6.0",
-    "@widget-js/core": "0.0.14",
+    "@widget-js/core": "^0.1.6",
     "babel-loader": "^8.3.0",
     "element-plus": "^2.2.19",
     "eslint": "^8.26.0",
