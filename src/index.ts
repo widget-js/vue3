@@ -32,6 +32,7 @@ export {
     WidgetColorField,
     WidgetDialogTitleBar,
     WidgetTimeRangeField,
+    WidgetSliderField,
     WidgetJsPlugin,
     WidgetFitBox
 }

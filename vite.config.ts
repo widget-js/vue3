@@ -28,9 +28,14 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': resolve(__dirname, './src'),
+            'vue': resolve(__dirname, './node_modules/vue')
         },
     },
+    optimizeDeps: {
+        include: ['@widget-js/core'],
+    },
     build: {
+        commonjsOptions: { include: [/@widget-js\/core/, /node_modules/] },
         outDir: 'dist',
         lib: {
             entry: resolve(__dirname, './src/index.ts'),

@@ -1,6 +1,6 @@
 <template>
   <div class="dialog-wrapper">
-    <div class="background" @mouseenter="backgroundMouseEnter"/>
+    <div class="background" @mouseenter="backgroundMouseEnter" />
     <el-container direction="vertical" class="dialog" @mouseenter="dialogMouseEnter">
       <slot name="header">
         <widget-dialog-title-bar :title="title"></widget-dialog-title-bar>
@@ -36,13 +36,11 @@ export default defineComponent({
       },
       methods: {
         backgroundMouseEnter() {
-          console.log("backgroundMouseEnter");
           BrowserWindowApi.setIgnoreMouseEvent(true);
         },
         dialogMouseEnter() {
-          console.log("dialogMouseEnter");
           BrowserWindowApi.setIgnoreMouseEvent(false);
-        },
+        }
       }
     }
 )
