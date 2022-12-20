@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from "vue";
+import {defineComponent, PropType, ref} from "vue";
 import WidgetColorField from "@/components/form/WidgetColorField.vue";
 import {WidgetData, WidgetParams} from "@widget-js/core";
 import WidgetDialogTitleBar from "@/components/dialog/WidgetDialogTitleBar.vue";
@@ -69,7 +69,7 @@ export default defineComponent({
       },
       props: {
         widgetData: {
-          type: WidgetData,
+          type: Object as PropType<WidgetData>,
           required: true,
         },
         widgetParams: {

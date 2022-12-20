@@ -1,8 +1,12 @@
-import {computed, ref} from 'vue'
+import {computed, ref, UnwrapRef} from 'vue'
 import {ElectronUtils, WidgetData, WidgetDataRepository, WidgetParams} from "@widget-js/core";
+import {ComputedRef, Ref} from "@vue/reactivity";
 
 interface UseWidgetOption<T extends WidgetData> {
-    onDataLoaded?: (data: T) => void,
+    onDataLoaded?: (data?: T) => void,
+    /**
+     * 在使用浏览器调试时使用，必传参数有：id,name,widthPx,heightPx
+     */
     debugParams?: WidgetParams,
     defaultData?: T,
     /**
@@ -15,7 +19,14 @@ interface UseWidgetOption<T extends WidgetData> {
     loadDataByWidgetName?: boolean;
 }
 
-export function useWidget<T extends WidgetData>(type: { new(name: string, id?: string): T; }, option?: UseWidgetOption<T>) {
+interface UseWidgetReturn<T extends WidgetData> {
+    widgetParams: WidgetParams,
+    widgetData: Ref<T>,
+    dataLoaded: Ref<boolean>,
+    sizeStyle: ComputedRef<{ width: string; height: string; }>
+}
+
+export function useWidget<T extends WidgetData>(type: { new(name: string, id?: string): T; }, option?: UseWidgetOption<T>): UseWidgetReturn<T> {
     //从url地址获取组件参数
     let widgetParams: WidgetParams;
 
@@ -28,15 +39,11 @@ export function useWidget<T extends WidgetData>(type: { new(name: string, id?: s
         widgetParams = WidgetParams.fromCurrentLocation();
     }
     //组件默认数据
-    let widgetData = ref();
+    let widgetData = ref<T>(new type(widgetParams.name!)) as Ref<T>;
     if (option?.defaultData) {
-        widgetData = ref(option?.defaultData);
-    } else {
-        const defaultData = new type(widgetParams.name!);
-        widgetData = ref(defaultData);
+        widgetData.value = option?.defaultData;
     }
-    widgetData.value.id = widgetParams.id!;
-
+    const dataLoaded = ref(false);
     //加载已保存的组件数据
     if (widgetParams.preview && option?.previewData) {
         widgetData.value = option?.previewData;
@@ -45,19 +52,21 @@ export function useWidget<T extends WidgetData>(type: { new(name: string, id?: s
             WidgetDataRepository.findByName<T>(widgetParams.name!, type).then((data) => {
                 if (data) {
                     widgetData.value = data
-                    option?.onDataLoaded?.(data);
                 }
+                option?.onDataLoaded?.(data);
+                dataLoaded.value = true;
             });
         } else {
+            widgetData.value.id = widgetParams.id!;
             WidgetDataRepository.find<T>(widgetParams.name!, widgetParams.id!, type).then((data) => {
                 if (data) {
                     widgetData.value = data
-                    option?.onDataLoaded?.(data);
                 }
+                option?.onDataLoaded?.(data);
+                dataLoaded.value = true;
             });
         }
     }
-
 
     const sizeStyle = computed(() => {
         return {
@@ -66,5 +75,5 @@ export function useWidget<T extends WidgetData>(type: { new(name: string, id?: s
         }
     });
 
-    return {widgetParams, widgetData, sizeStyle}
+    return {widgetParams, widgetData, dataLoaded, sizeStyle}
 }
