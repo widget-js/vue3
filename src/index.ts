@@ -11,6 +11,7 @@ import WidgetFitBox from "@/components/WidgetFitBox.vue";
 
 export * from '@/model/WidgetConfigOption';
 export * from '@/composition/use-widget';
+export * from '@/composition/use-ipc';
 export * from '@/composition/use-app-broadcast';
 
 const WidgetJsPlugin: Plugin = {

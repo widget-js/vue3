@@ -114,6 +114,9 @@ export default defineComponent({
     width: 100%;
   }
 
+  .footer {
+    padding: 0 16px 16px 16px;
+  }
 }
 
 
