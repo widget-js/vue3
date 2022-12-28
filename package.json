@@ -1,6 +1,6 @@
 {
   "name": "@widget-js/vue3",
-  "version": "0.0.11",
+  "version": "0.1.16",
   "publishConfig": {
     "access": "public"
   },
@@ -18,7 +18,7 @@
   "dependencies": {
     "@widget-js/core": "workspace:*",
     "element-plus": "^2.2.19",
-    "mingcute_icon": "^2.3.0"
+    "mingcute_icon": "^2.4.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.14",
