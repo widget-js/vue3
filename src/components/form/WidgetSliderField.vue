@@ -44,8 +44,8 @@ const valueModel = computed({
 </script>
 
 <style scoped>
-.el-slider{
-  margin-left: 8px;
-  max-width: 420px;
+.el-slider {
+  padding-left: 8px;
+  padding-right: 1.5rem;
 }
 </style>

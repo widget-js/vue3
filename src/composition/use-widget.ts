@@ -1,4 +1,4 @@
-import {computed, ref, UnwrapRef} from 'vue'
+import {computed, ref} from 'vue'
 import {ElectronUtils, WidgetData, WidgetDataRepository, WidgetParams} from "@widget-js/core";
 import {ComputedRef, Ref} from "@vue/reactivity";
 
@@ -17,12 +17,20 @@ interface UseWidgetOption<T extends WidgetData> {
      * 是否忽略组件id，只通过组件名获取数据
      */
     loadDataByWidgetName?: boolean;
+    /**
+     * 组件id，如果不传默认使用WidgetParams里的id
+     */
+    widgetId?: string;
+    /**
+     * 组件名，如果不传默认使用WidgetParams里的name
+     */
+    widgetName?: string;
 }
 
 interface UseWidgetReturn<T extends WidgetData> {
-    widgetParams: WidgetParams,
-    widgetData: Ref<T>,
-    dataLoaded: Ref<boolean>,
+    widgetParams: WidgetParams;
+    widgetData: Ref<T>;
+    dataLoaded: Ref<boolean>;
     sizeStyle: ComputedRef<{ width: string; height: string; }>
 }
 
@@ -44,12 +52,14 @@ export function useWidget<T extends WidgetData>(type: { new(name: string, id?: s
         widgetData.value = option?.defaultData;
     }
     const dataLoaded = ref(false);
+    const widgetName = option?.widgetName ?? widgetParams.name!;
+    const widgetId = option?.widgetId ?? widgetParams.id!;
     //加载已保存的组件数据
     if (widgetParams.preview && option?.previewData) {
         widgetData.value = option?.previewData;
     } else {
         if (option?.loadDataByWidgetName) {
-            WidgetDataRepository.findByName<T>(widgetParams.name!, type).then((data) => {
+            WidgetDataRepository.findByName<T>(widgetName, type).then((data) => {
                 if (data) {
                     widgetData.value = data
                 }
@@ -58,7 +68,7 @@ export function useWidget<T extends WidgetData>(type: { new(name: string, id?: s
             });
         } else {
             widgetData.value.id = widgetParams.id!;
-            WidgetDataRepository.find<T>(widgetParams.name!, widgetParams.id!, type).then((data) => {
+            WidgetDataRepository.find<T>(widgetName, widgetId, type).then((data) => {
                 if (data) {
                     widgetData.value = data
                 }

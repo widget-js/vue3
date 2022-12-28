@@ -21,7 +21,6 @@
                 <widget-color-field v-if="option.backgroundColor" v-model:color="widgetData.backgroundColor"
                                     title="背景颜色"/>
                 <widget-slider-field v-if="option.borderRadius" v-model:value="widgetData.borderRadius" :max="50"
-                                     style="margin-right: 1rem"
                                      title="背景圆角"/>
               </el-form>
             </el-tab-pane>
