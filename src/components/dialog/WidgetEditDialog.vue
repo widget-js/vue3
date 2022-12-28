@@ -1,7 +1,7 @@
 <template>
   <widget-base-dialog class="widget-edit-dialog" :title="option.title??widgetParams.title??'设置'">
     <template v-slot:main>
-      <el-row justify="center">
+      <el-row justify="center" v-if="option.preview">
         <widget-fit-box class="widget-wrapper" :width="option.previewWidth" :height="option.previewHeight"
                         :widget-width="widgetParams.widthPx"
                         :widget-height="widgetParams.heightPx">

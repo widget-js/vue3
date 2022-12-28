@@ -6,7 +6,8 @@ export type ConfigOption = {
     color?: boolean;
     previewWidth?: number;
     previewHeight?: number;
-    title?: string
+    title?: string;
+    preview?: boolean;
 }
 
 /**
@@ -20,6 +21,7 @@ export class WidgetConfigOption {
     color = false;
     previewWidth = 250;
     previewHeight = 250;
+    preview = true;
     title?: string;
 
     constructor(option: ConfigOption) {
@@ -31,6 +33,7 @@ export class WidgetConfigOption {
         this.previewWidth = option.previewWidth ?? 250;
         this.previewHeight = option.previewHeight ?? 250;
         this.title = option.title;
+        this.preview = option.preview ?? true;
     }
 
     isSupportBackgroundSetting() {
