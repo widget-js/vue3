@@ -8,6 +8,8 @@
 
 <script lang="ts">
 
+import {useWidgetScale} from "@/composition/use-widget";
+
 export default {
   name: "WidgetFitBox",
   props: {
@@ -18,20 +20,7 @@ export default {
   },
   computed: {
     scale() {
-      if (this.width >= this.widgetWidth && this.height >= this.widgetHeight) {
-        return 1;
-      } else if (this.widgetWidth > this.width && this.widgetHeight < this.height) {
-        return this.width / this.widgetWidth;
-      } else if (this.widgetWidth < this.width && this.widgetHeight > this.height) {
-        return this.height / this.widgetHeight;
-      } else {
-        //按长边缩放
-        if (this.widgetWidth > this.widgetHeight) {
-          return this.width / this.widgetWidth;
-        } else {
-          return this.height / this.widgetHeight;
-        }
-      }
+      return useWidgetScale(this.width,this.height,this.widgetWidth,this.widgetHeight);
     }
   }
 }

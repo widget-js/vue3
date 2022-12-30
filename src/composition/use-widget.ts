@@ -87,3 +87,21 @@ export function useWidget<T extends WidgetData>(type: { new(name: string, id?: s
 
     return {widgetParams, widgetData, dataLoaded, sizeStyle}
 }
+
+
+export function useWidgetScale(width: number, height: number, widgetWidth: number, widgetHeight: number): number {
+    if (width >= widgetWidth && height >= widgetHeight) {
+        return 1;
+    } else if (widgetWidth > width && widgetHeight < height) {
+        return width / widgetWidth;
+    } else if (widgetWidth < width && widgetHeight > height) {
+        return height / widgetHeight;
+    } else {
+        //按长边缩放
+        if (widgetWidth > widgetHeight) {
+            return width / widgetWidth;
+        } else {
+            return height / widgetHeight;
+        }
+    }
+}
