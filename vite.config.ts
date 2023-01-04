@@ -39,7 +39,8 @@ export default defineConfig({
         outDir: 'dist',
         lib: {
             entry: resolve(__dirname, './src/index.ts'),
-            name: '@widget-js/vue3'
+            name: '@widget-js/vue3',
+            fileName: (format) => `vue3.${format}.js`,
         },
         rollupOptions: {
             // 确保外部化处理那些你不想打包进库的依赖
