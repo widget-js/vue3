@@ -24,7 +24,14 @@
                                      title="背景圆角"/>
               </el-form>
             </el-tab-pane>
-            <el-tab-pane label="文字设置" name="third" v-if="option.isSupportTextSetting()">文字</el-tab-pane>
+            <el-tab-pane label="文字设置" name="third" v-if="option.isSupportTextSetting()">
+              <el-form>
+                <widget-color-field v-if="option.color" v-model:color="widgetData.color"
+                                    title="文字颜色"/>
+                <widget-slider-field v-if="option.fontSize" v-model:value="widgetData.fontSize" :max="50"
+                                     title="文字大小"/>
+              </el-form>
+            </el-tab-pane>
           </el-tabs>
         </el-col>
 
